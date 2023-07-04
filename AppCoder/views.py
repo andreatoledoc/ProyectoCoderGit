@@ -8,5 +8,5 @@ def curso (self):
     curso=Curso(nombre='Desarrollo web', camada='18895')
     curso.save()
 
-    documentoDeTexto=f'El curso es umuy bueno y se llama {curso.nombre}, y la camada {curso.camada}'
+    documentoDeTexto=f'El curso es umuy bueno y se llama {curso.nombre}, y la camada es {curso.camada}'
     return HttpResponse (documentoDeTexto)
