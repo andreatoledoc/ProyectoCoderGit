@@ -9,12 +9,16 @@
         <p style="color: red;">Están mal los datos, revisar</p> 
     {% endif %}
 
-    <form action="" method="POST"> {% csrf_token %}
-        <table>
-            {{ miFormulario.as_table }}
-        </table>
+    <p> Estamos buscando el: {{camada}}</p>
 
-        <input type="submit", value="Enviar">
-    </form>
+    {% if curso %}
+        <ul>
+            {% for cur in curso %}
+
+                <li> {{curso.nombre}}</li>
+                <li> {{curso.camada}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
 {% endblock %}
