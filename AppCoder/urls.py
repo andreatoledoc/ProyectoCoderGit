@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
+
 from AppCoder import views
 
 urlpatterns = [
@@ -10,7 +11,9 @@ urlpatterns = [
     path('estudiantes/', views.estudiantes, name='Estudiantes'),
     path('entregables/', views.entregables, name='Entregables'),
    # path('cursoFormulario/', views.cursoFormulario, name='CursoFormulario'),
-    path('profesorFormulario/', views.profesorFormulario, name='ProfesorFormulario'),
+   # path('profesorFormulario/', views.profesorFormulario, name='ProfesorFormulario'),
+   # path('estudianteFormulario/', views.estudianteFormulario, name='EstudianteFormulario'),
+   # path('entregableFormulario/', views.entregableFormulario, name='EntregableFormulario'),
     path('busquedaCamada/', views.busquedaCamada, name='BusquedaCamada'),
     path('buscar/', views.buscar),
 ]

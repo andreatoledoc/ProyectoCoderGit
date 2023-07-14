@@ -5,10 +5,23 @@
 {% block contenidoQueCambia %}
 
     <!-- En este lugar va lo que cambia y se asocia a la vista-->
+    {% if miFormualrio.errors %}
+        <p style="color: red;">Están mal los datos, revisar</p> 
+    {% endif %}
 
-    <h1> Este es el título del inicio que cambio</h1>
-    <p> Se ha heredado todo desde la plantilla padre</p>
+    <p> Estamos buscando la camada: {{camada}}</p>
 
-    <h3> En el hijo, inicio.html, donde casi no hay nada</h3>
+    {% if cursos %}
+        <ul>
+            {% for curso in cursos %}
+                <li> {{curso.nombre}}</li>
+                <li> {{curso.camada}}</li>
+            {% endfor %}
+        </ul>
+    
+    {% else %}
+        <p>No hay datos con esa descripcion</p>
+    {% endif %}
+    <p style="color: red;">{{respuesta}}</p>
 
 {% endblock %}

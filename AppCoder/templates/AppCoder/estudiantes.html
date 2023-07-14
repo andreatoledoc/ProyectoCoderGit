@@ -4,9 +4,17 @@
 
 {% block contenidoQueCambia %}
 
-    <!-- En este lugar va lo que cambia y se asocia a la vista-->
+<!-- Este es el contenido propio de INICIO -->
+    {% if miFormulario.errors %}
+        <p style="color: red;"> Están mal los datos, revisar</p>
+    {% endif %}
 
-    <h1> Estudiantes</h1>
-    <p> Acá va la info de estudiantes</p>
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            {{ miFormulario.as_table}}
+        </table>
+
+        <input type="submit", value="Enviar">
+    </form>
 
 {% endblock %}
