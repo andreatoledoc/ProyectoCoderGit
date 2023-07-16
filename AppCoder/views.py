@@ -9,9 +9,10 @@ from django.urls import reverse_lazy #Me permite que los objetos se carguen back
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required
 def inicio(request):
     return render(request, 'AppCoder/inicio.html')
 
@@ -126,7 +127,7 @@ def editarProfesor(request, profesor_nombre):
         miFormulario = ProfesorFormulario (request.POST)
         print (miFormulario)
 
-        if miFormulario.is_valid:
+        if miFormulario.is_valid():
 
             informacion = miFormulario.cleaned_data
 
@@ -139,13 +140,13 @@ def editarProfesor(request, profesor_nombre):
 
             return render (request, 'AppCoder/inicio.html')
         
-        else:
+    else:
             miFormulario = ProfesorFormulario(initial={'nombre': profesor.nombre,
                                                        'apellido': profesor.apellido,
                                                        'email': profesor.email,
                                                        'profesion': profesor.profesion})
             
-        return render (request, 'AppCoder/editarProfesor.html', {'miFormulario': miFormulario, 'profesor_nombre': profesor_nombre})
+    return render (request, 'AppCoder/editarProfesor.html', {'miFormulario': miFormulario, 'profesor_nombre': profesor_nombre})
     
 
 class CursoList(ListView):
@@ -205,10 +206,10 @@ def register (request):
             form.save()
             return render (request, "AppCoder/inicio.html", {"mensaje": "Usuario creado:"})
         
-        else:
+    else:
             form = UserRegisterForm()
 
-        return render (request, "AppCoder/registro.html", {"form":form})
+    return render (request, "AppCoder/registro.html", {"form":form})
 
 
 
