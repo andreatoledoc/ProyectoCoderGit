@@ -6,9 +6,9 @@
     <title>Borrar Curso</title>
 </head>
 <body>
-    <form action="POST">{% csrf_token %}
-        ¿Estas seguro de eliminar el curso "{{object}}"
-        <input type="submit" value="Submit">
+    <form method="post">{% csrf_token %}
+        ¿Estas seguro de eliminar el curso "{{object}}"?
+        <input type="submit" value="Submit" />
     </form>
 </body>
 </html>
